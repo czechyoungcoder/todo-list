@@ -1,12 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shopping List</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <script src="index.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping List</title>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+      integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 class="caption">To-do list</h1>
+    <div class="container">
+      <form class="form">
+        <input type="text" class="form-input" placeholder="Enter a task" required />
+        <button class="form-btn">
+          <i class="arrow fas fa-arrow-right"></i>
+          <span class="form-btn--desc">Add</span>
+        </button>
+      </form>
+      <ul class="todos">
+        <!-- <li class="todo done" data-id="1">
+          <input class="todo-cb" type="checkbox" checked />
+          <input class="todo-title" value="buy a banana" type="text" disabled />
+          <i class="todo-icon edit far fa-edit"></i>
+          <i class="todo-icon remove far fa-trash-alt"></i>
+        </li>
+        <li class="todo" data-id="2">
+          <input class="todo-cb" type="checkbox" />
+          <input class="todo-title" value="finish this sh*t" type="text" disabled />
+          <i class="todo-icon edit far fa-edit"></i>
+          <i class="todo-icon remove far fa-trash-alt"></i>
+        </li>
+        <li class="todo" data-id="3">
+          <input class="todo-cb" type="checkbox" />
+          <input class="todo-title" value="code all night long" type="text" disabled />
+          <i class="todo-icon edit far fa-edit"></i>
+          <i class="todo-icon remove far fa-trash-alt"></i>
+        </li> -->
+      </ul>
+    </div>
+
+    <script src="index.js"></script>
+    <script src="todo.js"></script>
+  </body>
 </html>

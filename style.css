@@ -1,0 +1,150 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,400&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(45deg, #de6262, #ffb88c);
+  background-attachment: fixed;
+  text-align: center;
+}
+
+.caption {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #252525;
+  margin: 15vh 0 3rem;
+}
+
+.container {
+  width: 100%;
+  background: #fff;
+  min-width: 350px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+}
+
+.form-input {
+  width: 70%;
+  border: 0;
+  font-size: 1.25rem;
+  background: #eee;
+  border-radius: 5px;
+  padding: 1rem 1.25rem;
+  font-family: inherit;
+  outline: 0;
+  transition: all 0.5s;
+}
+
+.form-input:hover,
+.form-input:active,
+.form-input:focus {
+  background: #ddd;
+}
+
+.form-btn {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  margin-right: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.arrow {
+  opacity: 0.8;
+  color: #2f2519;
+  font-size: 2rem;
+  padding: 0.25rem 1rem;
+  border-radius: 5px 10px 10px 5px;
+  transition: all 0.5s;
+}
+
+.form-btn--desc {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: gray;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+
+.form-btn:hover .arrow {
+  opacity: 1;
+  transform: scale(1.1) translateX(15px);
+}
+
+.form-btn:hover .form-btn--desc {
+  color: black;
+}
+
+.todos {
+  text-align: left;
+}
+
+.todo {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.todo-cb:hover + .todo-title {
+  text-decoration: line-through;
+  font-style: italic;
+}
+
+.todo.done > .todo-title {
+  text-decoration: line-through;
+  font-style: italic;
+}
+
+.todo-title {
+  padding: 0.5rem 1rem;
+  width: 100%;
+  margin: 0 1rem;
+  border: 0;
+  font-size: 1.5rem;
+  background: #fff;
+  transition: all 0.3s;
+}
+
+.todo-cb {
+  width: 30px;
+  height: 30px;
+}
+
+.todo-icon {
+  font-size: 20px;
+  margin: 10px;
+}
+
+.edit,
+.remove {
+  opacity: 0.8;
+}
+
+.edit:hover,
+.remove:hover {
+  opacity: 1;
+}
+
+.remove {
+  color: #d92027;
+}
