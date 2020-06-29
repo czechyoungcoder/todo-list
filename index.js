@@ -16,12 +16,61 @@ class App {
   }
 
   _setEvents() {
-    this.form.addEventListener("submit", () => {
-      event.preventDefault();
+    this.form.addEventListener("submit", (e) => {
+      e.preventDefault();
       const todo = new Todo(this.formInput.value, String(Date.now()));
       this.todos.push(todo);
       this.saveTodos();
       this.displayTodos();
+      this.formInput.value = "";
+    });
+  }
+  handleCheckboxes(checkboxes) {
+    checkboxes.forEach((cb) => {
+      cb.addEventListener("change", () => {
+        const todoId = cb.parentNode.dataset.id;
+        this.todos.find((t) => t.id === todoId).done = cb.checked;
+        this.saveTodos();
+        this.displayTodos();
+      });
+    });
+  }
+  handleRemoveButtons(removeButtons) {
+    removeButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const todoId = btn.parentNode.dataset.id;
+        this.todos = this.todos.filter((t) => t.id !== todoId);
+        this.saveTodos();
+        this.displayTodos();
+      });
+    });
+  }
+  handleEditButtons(editButtons) {
+    const saveChanges = (input, todoId) => {
+      const newValue = input.value;
+      this.todos.find((t) => t.id === todoId).title = newValue;
+      this.saveTodos();
+      this.displayTodos();
+    };
+    editButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const todo = btn.parentNode;
+        const todoId = todo.dataset.id;
+        const input = todo.querySelector(".todo-title");
+        if (input.disabled) {
+          input.disabled = false;
+          input.focus();
+          input.addEventListener("keydown", (e) => {
+            if (e.code === "Enter") {
+              input.disabled = true;
+              saveChanges(input, todoId);
+            }
+          });
+        } else {
+          input.disabled = true;
+          saveChanges(input, todoId);
+        }
+      });
     });
   }
   saveTodos() {
@@ -32,20 +81,19 @@ class App {
     for (const todo of this.todos) {
       this.todosUl.innerHTML += `
       <li class="todo ${todo.done ? "done" : ""}" data-id=${todo.id}>
-      <input class="todo-cb" type="checkbox" ${todo.done ? "checked" : ""} />
-      <input class="todo-title" value="${todo.title}" type="text" disabled />
-      <i class="todo-icon edit far fa-edit"></i>
-      <i class="todo-icon remove far fa-trash-alt"></i>
-    </li>
+        <input class="todo-cb" type="checkbox" ${todo.done ? "checked" : ""} />
+        <input class="todo-title" value="${todo.title}" type="text" disabled />
+        <i class="todo-icon edit far fa-edit"></i>
+        <i class="todo-icon remove far fa-trash-alt"></i>
+      </li>
       `;
-      const checkbox = document.querySelector(`li[data-id="${todo.id}"] .todo-cb`);
-      checkbox.addEventListener("change", () => {
-        console.log("changed");
-        this.todos.find((obj) => obj.id === todo.id).done = checkbox.checked;
-        this.saveTodos();
-        this.displayTodos();
-      });
     }
+    const checkboxes = document.querySelectorAll(".todo-cb");
+    const removeButtons = document.querySelectorAll(".remove");
+    const editButtons = document.querySelectorAll(".edit");
+    this.handleCheckboxes(checkboxes);
+    this.handleRemoveButtons(removeButtons);
+    this.handleEditButtons(editButtons);
   }
 }
 
