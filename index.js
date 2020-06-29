@@ -61,7 +61,7 @@ class App {
           input.disabled = false;
           input.focus();
           input.addEventListener("keydown", (e) => {
-            if (e.code === "Enter") {
+            if (e.keyCode === 13) {
               input.disabled = true;
               saveChanges(input, todoId);
             }
