@@ -35,7 +35,7 @@ body {
 .form {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 4rem;
+  padding-bottom: 1.5rem;
 }
 
 .form-input {
@@ -105,6 +105,25 @@ body {
   margin-top: 1rem;
 }
 
+@keyframes show-todo {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hide-todo {
+  100% {
+    margin: -35px;
+    transform: translateX(100px) translateY(25px) rotateZ(7deg);
+    opacity: 0;
+  }
+}
+
 .todo-title {
   padding: 0.5rem 1rem;
   width: 100%;
@@ -142,11 +161,15 @@ body {
 .edit,
 .remove {
   opacity: 0.8;
+  transition: all 0.25s;
 }
 
+.todo-cb:hover,
 .edit:hover,
+.editing,
 .remove:hover {
   opacity: 1;
+  transform: scale(1.2);
 }
 
 .remove {
