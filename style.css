@@ -219,6 +219,7 @@ body {
   }
   .todo-title {
     margin: 0;
+    margin-left: 5px;
     text-align: center;
   }
 }
