@@ -94,7 +94,7 @@ class App {
     this.todos.forEach((todo, idx) => {
       let todoStyle = "";
       if (newTodo && idx === 0) {
-        todoStyle = "animation: show-todo 1.5s cubic-bezier(0.16, 1, 0.3, 1);";
+        todoStyle = "animation: show-todo 1s cubic-bezier(0.16, 1, 0.3, 1);";
       }
       console.log(todoStyle);
       this.todosUl.innerHTML += `
