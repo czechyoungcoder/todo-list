@@ -96,7 +96,6 @@ class App {
       if (newTodo && idx === 0) {
         todoStyle = "animation: show-todo 1s cubic-bezier(0.16, 1, 0.3, 1);";
       }
-      console.log(todoStyle);
       this.todosUl.innerHTML += `
       <li style="${todoStyle}" class="todo ${todo.done ? "done" : ""}" data-id=${todo.id}>
         <input class="todo-cb" type="checkbox" ${todo.done ? "checked" : ""} />
